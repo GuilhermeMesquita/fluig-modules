@@ -1,16 +1,15 @@
 # fluig-modules
 
-Visto que <em>desenvolvedores Fluig</em> apresentam uma grande dificuldade durante
+Visto que <em><strong>desenvolvedores Fluig</strong></em> apresentam uma grande dificuldade durante
 o desenvolvimento no ciclo de vida de um projeto/produto no inicio de suas carreiras, 
 este repositório tem como objetivo disponibilizar uma coleção de modulos e scripts que
-irão ajudar no desenvolvimento dentro da plataforma Fluig.
+irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plataforma Fluig</strong></em>.
 
 > Validate Form
 
 <details>
 <summary>1. Capturar entradas vazias em inputs</summary>
 
-``` 
     /*
         Recebe o formulário e uma lista de IDs de inputs
         Verifica se há inputs vazios
@@ -32,7 +31,6 @@ irão ajudar no desenvolvimento dentro da plataforma Fluig.
 
         return emptyInputs;
     }
-```
 
 </details>
 
@@ -40,8 +38,6 @@ irão ajudar no desenvolvimento dentro da plataforma Fluig.
 <summary>
 2. Gerar mensagem de entradas vazias em inputs 
 </summary>
-
-<code>
 
     /*
         Recebe o formulário e uma lista de IDs/NAMEs de inputs
@@ -66,8 +62,33 @@ irão ajudar no desenvolvimento dentro da plataforma Fluig.
 
         return message;
     }
-</code>
+</details>
+
+<details>
+<summary>
+3. Exemplo de uso no validateForm.js
+</summary>
+
+    function validateForm(form) {
+
+    var numState = getValue('VKNumState');
+
+        if (numState == 0) {
+
+            // Lista de IDs de inputs da atividade -> numState
+            var inputsIdList = ['user_name', 'user_passowrd'];
+            
+            // lista de NAMEs de inputs da atividade -> numState
+            var inputsNamesList = ['User Name', 'User Password'];
+
+            // captura entradas vazias do formulário na atividade -> numState
+            var emptyInputs = getEmptyInputs(form, inputsIdList);
+
+            // gera/exibe mensagem ao usuario
+            if (emptyInputs > 0)
+                throw generateMessageEmptyInputs(form, inputsIdList, inputsNamesList);
+        }
+
+    }
 </details>
     
-
-
