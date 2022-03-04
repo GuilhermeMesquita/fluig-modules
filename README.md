@@ -10,7 +10,8 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 <details>
 <summary>1. Capturar entradas vazias em inputs</summary>
 
-    /*
+```js 
+   /*
         Recebe o formulário e uma lista de IDs de inputs
         Verifica se há inputs vazios
         Retorna o número de inputs vazios
@@ -31,6 +32,8 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 
         return emptyInputs;
     }
+```
+
 
 </details>
 
@@ -39,6 +42,7 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 2. Gerar mensagem de entradas vazias em inputs 
 </summary>
 
+```js
     /*
         Recebe o formulário e uma lista de IDs/NAMEs de inputs
         Verifica se há inputs vazios
@@ -62,6 +66,7 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 
         return message;
     }
+```
 </details>
 
 <details>
@@ -69,7 +74,8 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 3. Exemplo de uso no validateForm.js
 </summary>
 
-    function validateForm(form) {
+```js
+function validateForm(form) {
 
     var numState = getValue('VKNumState');
 
@@ -90,5 +96,6 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
         }
 
     }
+```
 </details>
     
