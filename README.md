@@ -8,94 +8,65 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 > Validate Form
 
 <details>
-<summary>1. Capturar entradas vazias em inputs</summary>
+<summary>1. Capturar entradas vazias em inputs e gera mensagem</summary>
 
 ```js 
-   /*
-        Recebe o formulário e uma lista de IDs de inputs
-        Verifica se há inputs vazios
-        Retorna o número de inputs vazios
-    */
+/*
+    Recebe o formulário e uma lista de NAMEs e Referências de inputs
+    Verifica se há inputs vazios
+    Retorna quantidade de inputs vazios
+    Retorna lista/mensagem de inputs vazios
+*/
 
-    /**
-    * 
-    * @param {Array} idList
-    */
+/**
+ * 
+ * @param {Array} nameList
+ * @param {Array} idList
+ */
 
-    function getEmptyInputs(form, idList) {
-        var emptyInputs = 0;
 
-        for (var index = 0; index < idList.length; index++) {
-            if (form.getValue(idList[index]) == '')
-                emptyInputs++
+function getEmptyInputs(form, idList, nameList) {
+    var emptyInputs = 0;
+
+    var message = 'Os seguintes campos são obrigatórios!\n';
+
+    for (var index = 0; index < nameList.length; index++) {
+        if (form.getValue(idList[index]) == '') {
+            emptyInputs++;
+            message += (index + 1) + ' - ' + nameList[index] + '.\n';
         }
 
-        return emptyInputs;
     }
-```
 
-
-</details>
-
-<details>
-<summary>
-2. Gerar mensagem de entradas vazias em inputs 
-</summary>
-
-```js
-    /*
-        Recebe o formulário e uma lista de IDs/NAMEs de inputs
-        Verifica se há inputs vazios
-        Retorna mensagem de inputs vazios com os seus names
-    */
-
-    /**
-    * 
-    * @param {Array} nameList
-    * @param {Array} idList
-    */
-
-
-    function generateMessageEmptyInputs(form, idList, nameList) {
-        var message = 'Os seguintes campos são obrigatórios!\n';
-
-        for (var index = 0; index < nameList.length; index++) {
-            if (form.getValue(idList[index]) == '')
-                message += (index + 1) + ' - ' + nameList[index] + '.\n';
-        }
-
-        return message;
-    }
+    return { emptyInputs, message }
+}
 ```
 </details>
 
 <details>
 <summary>
-3. Exemplo de uso no validateForm.js
+2. Exemplo de uso no validateForm.js
 </summary>
 
 ```js
 function validateForm(form) {
-
     var numState = getValue('VKNumState');
 
     if (numState == 0) {
 
         // Lista de IDs de inputs da atividade -> numState
         var inputsIdList = ['user_name', 'user_passowrd'];
-        
+
         // lista de NAMEs de inputs da atividade -> numState
         var inputsNamesList = ['User Name', 'User Password'];
 
-        // captura entradas vazias do formulário na atividade -> numState
-        var emptyInputs = getEmptyInputs(form, inputsIdList);
+        var { emptyInputs, message } = getEmptyInputs(form, inputsIdList, inputsNamesList);
 
-        // gera/exibe mensagem ao usuario
-        if (emptyInputs > 0)
-            throw generateMessageEmptyInputs(form, inputsIdList, inputsNamesList);
+        if(emptyInputs > 0)
+            throw message;
     }
 
-    }
+}
 ```
 </details>
     
