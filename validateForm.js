@@ -1,17 +1,17 @@
 function validateForm(form) {
-    var numState = getValue('VKNumState');
+    var numState = getValue('WKNumState');
 
     if (numState == 0) {
 
-        // Lista de NAMEs de inputs da atividade -> numState
-        var inputsIdList = ['user_name', 'user_passowrd'];
+        // Lista de NAMEs/IDs de inputs da atividade -> numState
+        var nameInputList = ['user_name', 'user_passowrd'];
 
-        // lista de Referências de inputs da atividade -> numState
-        var inputsNamesList = ['User Name', 'User Password'];
+        // lista de Referências (labels) de inputs da atividade -> numState
+        var referenceInputList = ['User Name', 'User Password'];
 
-        var { numEmptyInputs, message } = emptyInputs(form, inputsIdList, inputsNamesList);
+        var { numEmptyInputs, message } = emptyInputs(form, nameInpuyList, referenceInputList);
 
-        if (emptyInputs > 0)
+        if (numEmptyInputs > 0)
             throw message;
     }
 
