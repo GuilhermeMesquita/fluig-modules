@@ -8,22 +8,25 @@
 /**
  * 
  * @param {Array} nameList
- * @param {Array} idList
+ * @param {Array} referenceList
  */
 
 
-function getEmptyInputs(form, idList, nameList) {
-    var emptyInputs = 0;
+function emptyInputs(form, nameList, referenceList) {
+    var numEmptyInputs = 0;
 
     var message = 'Os seguintes campos são obrigatórios!\n';
 
     for (var index = 0; index < nameList.length; index++) {
-        if (form.getValue(idList[index]) == '') {
-            emptyInputs++;
-            message += (index + 1) + ' - ' + nameList[index] + '.\n';
+        if (form.getValue(nameList[index]) == '') {
+            numEmptyInputs++;
+            message += (index + 1) + ' - ' + referenceList[index] + '.\n';
         }
 
     }
 
-    return { emptyInputs, message }
+    return { 
+        numEmptyInputs: numEmptyInputs, 
+        message: message 
+    }
 }

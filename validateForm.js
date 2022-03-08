@@ -9,7 +9,7 @@ function validateForm(form) {
         // lista de Referências de inputs da atividade -> numState
         var inputsNamesList = ['User Name', 'User Password'];
 
-        var { emptyInputs, message } = getEmptyInputs(form, inputsIdList, inputsNamesList);
+        var { numEmptyInputs, message } = emptyInputs(form, inputsIdList, inputsNamesList);
 
         if (emptyInputs > 0)
             throw message;

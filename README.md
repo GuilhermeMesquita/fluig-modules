@@ -21,24 +21,27 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 /**
  * 
  * @param {Array} nameList
- * @param {Array} idList
+ * @param {Array} referenceList
  */
 
 
-function getEmptyInputs(form, idList, nameList) {
-    var emptyInputs = 0;
+function emptyInputs(form, nameList, referenceList) {
+    var numEmptyInputs = 0;
 
     var message = 'Os seguintes campos são obrigatórios!\n';
 
     for (var index = 0; index < nameList.length; index++) {
-        if (form.getValue(idList[index]) == '') {
-            emptyInputs++;
-            message += (index + 1) + ' - ' + nameList[index] + '.\n';
+        if (form.getValue(nameList[index]) == '') {
+            numEmptyInputs++;
+            message += (index + 1) + ' - ' + referenceList[index] + '.\n';
         }
 
     }
 
-    return { emptyInputs, message }
+    return { 
+        numEmptyInputs: numEmptyInputs, 
+        message: message 
+    }
 }
 ```
 </details>
@@ -54,15 +57,15 @@ function validateForm(form) {
 
     if (numState == 0) {
 
-        // Lista de IDs de inputs da atividade -> numState
+        // Lista de NAMEs de inputs da atividade -> numState
         var inputsIdList = ['user_name', 'user_passowrd'];
 
-        // lista de NAMEs de inputs da atividade -> numState
+        // lista de Referências de inputs da atividade -> numState
         var inputsNamesList = ['User Name', 'User Password'];
 
-        var { emptyInputs, message } = getEmptyInputs(form, inputsIdList, inputsNamesList);
+        var { numEmptyInputs, message } = emptyInputs(form, inputsIdList, inputsNamesList);
 
-        if(emptyInputs > 0)
+        if (emptyInputs > 0)
             throw message;
     }
 
