@@ -73,7 +73,7 @@ function validateForm(form) {
 ```
 </details>
 
-> Campos 
+> Campos tipo ZOOM
 
 <details>
 <summary>
