@@ -85,8 +85,8 @@ function setZoomData(instance, value) {
 
 // Exemplo de utilização:
 setTimeout(() => {
-			setZoomData("zoomFieldName", "newValue");
-		}, 1000);
+	setZoomData("zoomFieldName", "newValue");
+}, 1000);
 ```
 </details>
 
