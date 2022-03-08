@@ -72,4 +72,22 @@ function validateForm(form) {
 }
 ```
 </details>
+> Campos tipo Zoom
+<details>
+<summary>
+1. Atribuir o valor em um campo Zoom (setValue)
+</summary>
+
+```js
+function setZoomData(instance, value) {
+	window[instance].setValue(value);
+}
+
+// Exemplo de utilização:
+setTimeout(() => {
+	setZoomData("zoomFieldName", "newValue");
+}, 1000);
+```
+</details>
+
     
