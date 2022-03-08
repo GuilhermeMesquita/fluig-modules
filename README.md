@@ -72,7 +72,9 @@ function validateForm(form) {
 }
 ```
 </details>
-> Campos tipo Zoom
+
+> Campos 
+
 <details>
 <summary>
 1. Atribuir o valor em um campo Zoom (setValue)
