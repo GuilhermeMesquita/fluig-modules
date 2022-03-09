@@ -35,6 +35,10 @@ function setSelectedZoomItem(selectedItem) {
         console.log(indice);
         */
 
+        if (selectedItem.inputId == "ID_CAMPO_ZOOM_PAI_X_FILHO___" + indice) {
+            document.querySelector("#campo").value = selectedItem.id;
+        }
+
     } else {/**Se não for pai X filho. */
 
         if (selectedItem.inputId == "ID_CAMPO_ZOOM") {
@@ -42,6 +46,37 @@ function setSelectedZoomItem(selectedItem) {
         }
         else if (selectedItem.inputId == "ID_CAMPO_ZOOM_2") {
             document.querySelector("#campo2").value = selectedItem.id;
+        }
+    }
+}
+
+function removedZoomItem(removedItem) {
+    /*
+    Descomentar para ver em console o resultado:
+
+    console.log("removedZoomItem - selectedItem");
+    console.log(removedItem);
+
+    console.log("removedZoomItem - selectedItem.inputId");
+    console.log(removedItem.inputId);
+    */
+
+    if (removedItem.inputId.includes('___')) {/** Se for pai X filho. */
+        let input = removedItem.inputId.split('___');
+        let inputIdPaiFilho = input[0];
+        let indice = input[1];
+
+        if (inputIdPaiFilho == "ID_CAMPO_ZOOM_PAI_X_FILHO") {
+            document.querySelector("#campo").value = "";
+        }
+
+    } else {/**Se não for pai X filho. */
+
+        if (removedItem.inputId == "ID_CAMPO_ZOOM") {
+            document.querySelector("#campo").value = "";
+        }
+        else if (removedItem.inputId == "ID_CAMPO_ZOOM_2") {
+            document.querySelector("#campo2").value = "";
         }
     }
 }

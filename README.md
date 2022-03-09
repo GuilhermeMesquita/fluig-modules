@@ -151,4 +151,49 @@ ou seja, basta apenas fazer as tratativas condicionais, conforme exemplo no font
 ```
 </details>
 
+<details>
+<summary>
+Atribuição de valores ao remover seleção de campo Zoom (removedZoomItem)
+</summary>
+
+```js
+function removedZoomItem(removedItem) {
+    /*
+    Descomentar para ver em console o resultado:
+
+    console.log("removedZoomItem - removedItem");
+    console.log(removedItem);
+
+    console.log("removedZoomItem - removedItem.inputId");
+    console.log(removedItem.inputId);
+    */
+
+    if (removedItem.inputId.includes('___')) {/** Se for pai X filho. */
+        let input = removedItem.inputId.split('___');
+        let inputIdPaiFilho = input[0];
+        let indice = input[1];
+
+        if (inputIdPaiFilho == "ID_CAMPO_ZOOM_PAI_X_FILHO") {
+            document.querySelector("#campo").value = "";
+        }
+
+    } else {/**Se não for pai X filho. */
+
+        if (removedItem.inputId == "ID_CAMPO_ZOOM") {
+            document.querySelector("#campo").value = "";
+        }
+        else if (removedItem.inputId == "ID_CAMPO_ZOOM_2") {
+            document.querySelector("#campo2").value = "";
+        }
+    }
+}
+
+/* 
+Exemplo de utilização:
+OBS: Essa função por PADRÃO será chamada toda vez que um valor de campo zoom for EXCLUÍDO/REMOVIDO,
+ou seja, basta apenas fazer as tratativas condicionais, conforme exemplo no fonte acima.
+*/
+```
+</details>
+
     
