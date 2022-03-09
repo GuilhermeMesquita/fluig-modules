@@ -90,9 +90,11 @@ setTimeout(() => {
 	setZoomData("zoomFieldName", "newValue");
 }, 1000);
 ```
-
+</details>
+	
+<details>
 <summary>
-2. Atribuição baseada em valores de campo ZOOM (setSelectedZoomItem)
+Atribuição baseada em valores de campo Zoom (setSelectedZoomItem)
 </summary>
 
 ```js
