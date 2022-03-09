@@ -8,7 +8,7 @@ irão <em><strong>aumentar a sua produtividade no desenvolvimento dentro da plat
 > Validate Form
 
 <details>
-<summary>1. Capturar entradas vazias em inputs e gera mensagem</summary>
+<summary>Capturar entradas vazias em inputs e gera mensagem</summary>
 
 ```js 
 /*
@@ -48,7 +48,7 @@ function emptyInputs(form, nameList, referenceList) {
 
 <details>
 <summary>
-2. Exemplo de uso no validateForm.js
+Exemplo de uso no validateForm.js
 </summary>
 
 ```js
@@ -72,10 +72,12 @@ function validateForm(form) {
 }
 ```
 </details>
-> Campos tipo Zoom
+
+> Campos tipo ZOOM
+
 <details>
 <summary>
-1. Atribuir o valor em um campo Zoom (setValue)
+Atribuir o valor em um campo Zoom (setValue)
 </summary>
 
 ```js
