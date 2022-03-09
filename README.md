@@ -99,7 +99,7 @@ Atribuição baseada em valores de campo Zoom (setSelectedZoomItem)
 
 ```js
 function setSelectedZoomItem(selectedItem) {
-	/* 
+    /* 
     Para verificarmos os valores/propriedades dentro do parâmetro,
     podemos utilizar:
 
@@ -147,7 +147,7 @@ function setSelectedZoomItem(selectedItem) {
 Exemplo de utilização:
 OBS: Essa função por PADRÃO será chamada toda vez que um valor de campo zoom for SELECIONADO,
 ou seja, basta apenas fazer as tratativas condicionais, conforme exemplo no fonte acima.
-/*
+*/
 ```
 </details>
 
